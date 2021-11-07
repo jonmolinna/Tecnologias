@@ -1,0 +1,90 @@
+help => comandos de la consola
+help contents => 
+help data definition; => comandos de base de datos
+
+Comandos
+---------------------------------------------
+show databases; => ve la base de datos
+use name_db; => para acceder a la base de datos
+show tables; => ver las tablas
+describe name_table; => ve los campos de la tabla
+system cls => para limpiar la consola
+
+SOURCE C:/bases_datos/agenda.sql;
+
+Tipos de Datos Numeros Enteros
+-----------------------------------------
+tinyint         1 (bytes)   -128 - 127 (signed)         0 - 255 (unsigned)   
+smallint        2           -32.768 - 32.767            0 - 65.535
+mediumint       3           -8.388.608 - 8,388,607
+integer (int)   4           (-,+)
+bigint          8           (-,+)
+
+Tipos de Datos Cadenas de Caracteres
+-------------------------------------------
+char(m)         m (bytes)       0 - 255 (longitud)      Longitud fija (comentario)
+varchar(m)      m + (1 o 2)     0 - 65.535              Longitud variable
+tinytext        m + 1           0 - 255                 No permiten DEFAULT
+text            m + 2           0 - 65.535              No permiten DEFAULT
+mediumtext      m + 3           0 - 16.777.215          No permiten DEFAULT
+longtext        m + 4           0 - 4.294.967.298       No permiten DEFAULT
+
+
+Tipos de Fechas
+-----------------------------------------------------
+date        "YYYY-MM-DD"
+time        "HH:MM:SS"
+datetime    "YYYY-MM-DD HH:MM:SS"
+timestamp   "YYYY-MM-DD HH:MM:SS"
+year        "YYYY" o "YY"
+
+Tipos de Datos Decimales
+--------------------------------------------------
+decimal(m,d)    valor fijo
+numeric(m,d)    sinonimo de decimal
+float(m,d)      valor aproximado
+double(m,d)     valor aproximado
+
+Operadores (operator) de SQL
+-------------------------------------------------
+Select
+    - as
+    - distinct
+    - from
+    - where
+    - group by
+    - having
+    - order by
+    - limit
+
+Operadores Aritmeticos
+-------------------------------------------------
++       suma
+-       resta
+*       multiplicacion
+/       division
+%       resto de la division
+div     division sin resto
+
+Operadores Logicos
+---------------------------------------------------
+and     uno y otro
+or      uno u otro, o los dos
+xor     uno y otro, pero no los dos
+not     no uno
+
+Operadores de Comparacion
+----------------------------------------------
+>           mayor que
+<           menor que
+=           igual que
+!= o <>     distinto de
+>=          mayor o igual que
+<=          menor o igual que
+
+Otros Operadores
+-----------------------------------------------
+between x and y     entre X e Y
+like                como
+in ()               en una lista
+is                  es
