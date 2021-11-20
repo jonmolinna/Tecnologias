@@ -1,0 +1,37 @@
+Configuraciones
+------------------------------------
+git config --global user.name "jon dallase"
+git config user.name
+git config --global user.email "jmolina222@gamail.com"
+git config user.email
+
+git init => para iniciar con el proyecto
+git status
+git add name.js
+git add .
+git commit -m "descripcion del cambio"
+
+git rm --cached name.js => quita el git add para no guardar el cambio
+git rm --cached .
+
+
+.gitignore
+-------------------------------------------------------------
+*.mp3 => ignora todo los audios con extension mp3
+name.extension => ignora un solo archivo
+
+
+Ver los Commits
+-------------------------------------------------------
+git log => permite ver los commits
+git log --stat => permite ver estadisticas de los commits
+git log --oneline => permite ver los commits en lineas
+git checkout 23kw344k => permite moverse en la versiones (codigo), tener mucho cuidado
+
+Ramas
+-----------------------------------------------------------
+git branch => permite ver ramas
+git checkout master => permite cambiarse de rama (master) o el nombre de la rama creado
+git checkout -b nameRama => permite crear una rama
+git merge nameRama => une la rama master con la rama creado (te cambias a master y aplicas el comando)
+git branch -d nameRama => permite eliminar la rama.
