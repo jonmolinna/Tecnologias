@@ -203,4 +203,19 @@ export const query11 = async (req, res) => {
     }
 };
 
-// 1.05:59
+// Obtener los correos que acaben en .com (Exp regular => Like)
+export const query12 = async (req, res) => {
+    try {
+        const users = await User.find({
+            email: /.com$/, // acabe en punto com
+            email: /^user/, // que comienze con user
+            email: /@/ // que exista un caracter
+        });
+
+        return res.status(200).json({users })
+
+    } catch (err) {
+        console.log('>>>', err);
+        return res.status(500).json({ message: err })
+    }
+};
