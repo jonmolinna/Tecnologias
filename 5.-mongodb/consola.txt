@@ -1,0 +1,6 @@
+show databases; => permite ver las base de datos.
+db; => permite ver en que base de datos te encuentras.
+use nameBD => crea o selecciona la BD en la que vas a trabajar.
+show collections; => ve las colecciones o tablas.
+
+
