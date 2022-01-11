@@ -9,6 +9,10 @@ import { queryCount, queryLimit, querySkip, querySort } from '../controllers/cur
 import { proyeccion } from '../controllers/proyecciones.js';
 import { updateUserSave, updateUser, findByIdAndUpdateUser } from '../controllers/update.js';
 import { deleteOneUser, findByIdAndDeleteUser } from '../controllers/delete.js';
+import {
+  pregunta1, pregunta2, pregunta3, pregunta5,
+  pregunta6, pregunta7, pregunta8, pregunta9, pregunta10
+} from '../controllers/schemas.js';
 
 // INSERT
 router.post('/insert', insertManyUser);
@@ -44,5 +48,17 @@ router.put('/findByIdAndUpdateUser/:id', findByIdAndUpdateUser);
 // DELETE
 router.delete('/deleteOneUser/:id', deleteOneUser);
 router.delete('/findByIdAndDeleteUser/:id', findByIdAndDeleteUser);
+
+// SCHEMAS CON MULTIPLES LISTAS.
+router.get('/pregunta1', pregunta1);
+router.put('/pregunta2/:id', pregunta2);
+router.put('/pregunta3/:id', pregunta3);
+router.get('/pregunta5', pregunta5);
+router.put('/pregunta6/:id', pregunta6);
+router.put('/pregunta7/:id', pregunta7);
+router.put('/pregunta8/:idSchema/:idComments', pregunta8);
+router.put('/pregunta9/:idSchema/:idComments', pregunta9);
+router.put('/pregunta10/:idSchema/:idComments', pregunta10);
+
 
 export default router;
