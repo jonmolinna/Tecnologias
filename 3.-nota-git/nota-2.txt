@@ -1,0 +1,46 @@
+dir, ls => para ver los archivos
+
+Comando para subir
+--------------------------------------------------------------------------------------
+git status => permite ver el estado de la carpeta.
+git add .
+git main.js => permite agregar los archivos.
+git commit -m "Titulo del commit"
+git push => permite subir los cambios al github.
+
+
+Ramas
+--------------------------------------------------------------------------------------
+git branch => permite ver tu rama o ramas.
+git checkout -b dallase => creando una rama llamado dallase
+git push --set-upstream origin dallase => permite registrar la rama dallase a github.
+git checkout dallase => permite cambiar de rama.
+        git add .
+        git commit -m "add sumar"
+        git push
+git checkout main
+git pull => permite actualizar el main los cambios realizados en dallase (antes tienes que cambiarte a main).
+git merge nameRama => creo que es esto
+git push
+
+
+En caso de emergencia que quieres cambiar
+---------------------------------------------------------------------------------------
+git checkout dallase
+git stash => guarda tu codigo en local (codigo que no estas seguro y quieres cambiarte de rama).
+git checkout main
+    ahi solucionas el problema
+git checkout dallase
+git stash apply => ves en lo que te has quedado.
+git checkout . => te deja en tu codigo anterior.
+
+
+git log => permite ver todos los cambios de los programadores
+
+Ignorar Archivos
+------------------------------------------------------------------
+*.html => se ignora todos los archivos .html
+
+Readme
+--------------------------------------------------------------
+make a readme => para estilizar el readme
