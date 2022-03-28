@@ -1,0 +1,95 @@
+docker images => permite ver imagenes descargados.
+docker rmi mysql => permite eliminar imagenes descargados.
+docker images -aq => permite ver el id de los imagenes descargados.
+docker rmi $(docker images -aq) => permite eliminar todos los images descargados.
+docker rmi $(docker images -aq) -f => permite eliminar todos los images descargados.
+docker search ubuntu => permite ver las imagenes
+docker pull ubuntu => permite descargar una imagen
+docker run ubuntu => Permite ejecutar una imagen
+docker run ubuntu echo 'Hola Mundo'
+docker run -it ubuntu bash => para usar el consola ubuntu
+
+docker ps => permite ver la ejecucion de la imagen o contenedor.
+docker ps -a => permite ver el historial de los contenedores que se ejecutaron o esten en stop.
+docker ps -aq => permite ver solo el id de los contenedore parados.
+docker rm id-container o names => permite eliminar el historia.
+docker rm $(docker ps -aq) => permite eliminar todo ell historial (solo es para Linux)
+docker start id-container => permite ejecutar los contenedores pausados.
+docker stop id-container => permite pausar
+docker rm $(docker ps -aq) => permite pausar y eliminar la imagen
+docker rm id_container -f => pausa y elimina la imagen.
+
+Descargando un Container ( nginx )
+---------------------------------------
+docker pull nginx
+docker run nginx => para arrancar con el contenedor.
+docker ps => para ver la ejecucion de la imagen.
+docker run -p 3000:80 nginx => para cambiar el puerto de ejecucion.
+http://localhost:3000/ => pones en tu navegador
+docker run -p 80:80 -d nginx => el -d permite que ejecute en segundo plano. y el terminar no se quede plano.
+localhost:80 => pones en tu navegador
+docker stop fad => para parar el contenedor.
+
+docker run -p 80:80 -p 3000:80 -p 4000:80 -p 5000:80 -d nginx => para ejecutar en multiples puertos.
+
+Ejecutando mas Contenedor
+-----------------------------------------------
+docker run name_contenedor => verifica si el contenedor esta descargado, si esta lo ejecuta, caso contrario los descarga y ejecuta.
+
+- docker run -p 80:80 -d httpd => -p es el puerto
+- docker run -d -p 3306:3306 --name mydatabase mysql => --name -> dando un nombre personalizado.
+- docker run -d -p 3307:3306 --name mydatabase mysql
+- docker run -d -p 3307:3306 --name mydatabase -e MYSQL_ROOT_PASSWORD=contraseña mysql => ejecutando con un variable de entorno.
+- docker ps --format="ID\t{{.ID}}" => permite dar formato de visualizacion.
+- docker ps --format="ID\t{{.ID}}\nNombre:\t{{.Names}}"
+
+Editando el Archivo bashrc (Variable de Entorno) Linux
+este es el string DOCKER_FORMAT (pueden agregar a su archivo bashrc, .zshrc, etc):
+---------------------------------------------------------------
+- nano ~/.bashrc
+
+# DOCKER_FORMAT
+export DOCKER_FORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nPORT\t{{.Ports}}\nStatu    s\t{{.Status}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSize\t{{.Size}}\n"
+
+para ver el variable
+----------------------
+- echo $DOCKER_FORMAT
+- source ~/.bashrc => Para cargar el archivo
+- echo $DOCKER_FORMAT
+- docker ps --format=$DOCKER_FORMAT => Para dar formato con el variable
+
+
+
+Web Site (Usa terminar ubuntu)
+-------------------------------------------------------------
+docker run -d -p 80:80 --name website -v $(pwd):/usr/share/nginx/html:ro nginx => permite copiar
+docker stop website => para el contenedor
+docker rm website => eliminar el contenedor
+docker run -d -p 3000:80 -v $(pwd):/usr/share/nginx/html --name website nginx
+docker exec -it website bash => para crear un archivo
+cd /usr/share/nginx/html/
+ls => permite ver arhivos de la ruta
+touch services.html
+
+ctrl + d => para salir
+
+Dockerfile => permite especificar las instrucciones de como funciona nuestro contenedor
+----------------------------------------------------
+docker build -t fazttest . => permite crear tu imagen
+docker images
+docker run -p 7000:80 -d --name faztapp fazttest => ejecuta tu imagen
+
+Para Subir a docker hub
+---------------------------------
+docker build -t jondallas37/website .
+
+docker login
+
+docker push jondallas37/website
+
+Usando mi Imagen
+----------------------------------------------------
+docker pull jondallas37/website
+docker run -d -p 3000:80 --name sitioweb jondallas37/website
+
+Investigar Docker Compose
