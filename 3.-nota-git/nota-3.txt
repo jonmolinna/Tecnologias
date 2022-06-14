@@ -1,0 +1,24 @@
+Cambiar el nombre de un archivo
+------------------------------------------
+git mv name.js new_name.js
+git add new_name:js
+git commit -m "Rename File"
+git push
+
+
+Mover un archivo
+--------------------------------------------
+- crea una carpeta
+- mueve los archivo a la nueva carpeta
+git add .
+git status
+git commit -m "Move file to new directory"
+git push
+
+
+Eliminar un archivo
+------------------------------------------
+- Ingrese hasta la ubicacion del archivo
+- En la parte superior click en Trash
+- Ingrese el commit y guardar
+git pull => para actualizar
